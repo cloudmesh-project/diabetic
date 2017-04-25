@@ -1,0 +1,5 @@
+[mylocalhost]
+127.0.0.1 ansible_ssh_user=<localhost-username> ansible_connection=local
+
+[remotehosts]
+<remote ip address> ansible_ssh_user=hadoop

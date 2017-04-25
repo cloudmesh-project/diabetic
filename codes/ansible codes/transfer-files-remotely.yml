@@ -1,0 +1,9 @@
+---
+ - hosts: remotehosts
+   tasks:
+     - name: Transfer file from remote machine
+       synchronize:
+         src: <files to be transferred with absolute path>
+         dest: /home/hadoop/
+         mode: push
+       delegate_to: 127.0.0.1
