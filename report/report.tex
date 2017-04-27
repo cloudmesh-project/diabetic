@@ -48,7 +48,7 @@ We chose the case study of predicting the likelihood of a diabetes patient getti
 
 We approached the solution from a pure data perspective to address the challenge of lacking medical domain knowledge. For some basic information, we relied on the dataset description on UCI website \cite{www-dataset}, ICD-9 \cite{www-icd9} and earlier studies \cite{article-hindawi}. We followed a workflow as shown in figure \ref{fig:workflow}. 
 
-Our other important goal is to propose an end-to-end solution that is scalable and faster. While our dataset is about 100,000 records, anticipating real-world scenarios with huge amounts of data we are proposing a Hadoop based solution. We are utilizing Spark for its faster processing \cite{www-sparkfast} and  advanced analytics through packages like Mllib \cite{www-mllib} which provides several commonly used machine learning algorithms. Finally we are implementing this solution over cloud infrastructure to meet our infrastructure requirements. This helped us demonstrate an end-to-end solution closer to real-world scenarios, where enterprises utilize cloud infrastructure in a pay per-use model. This helped us save time and resources in setting up the infrastructure.
+Our other important goal is to propose an end-to-end solution that is scalable and faster. While our dataset is about 100,000 records, anticipating real-world scenarios with huge amounts of data we are proposing a Hadoop based solution. We are utilizing Spark for its faster processing \cite{www-sparkfast} and  advanced analytics through packages like Mllib \cite{www-mllib}, which provides several commonly used machine learning algorithms. Finally we are implementing this solution over cloud infrastructure to meet our infrastructure requirements. This helped us demonstrate an end-to-end solution closer to real-world scenarios, where enterprises utilize cloud infrastructure in a pay per-use model. This helped us save time and resources in setting up the infrastructure.
 
 We deployed our solution on two different clouds and obtained metrics to assess the infrastructure performance with our solution.  We also deployed our solutions on a distributed Hadoop/Spark environment built on on-premise machines. We compared the performance metrics of all the three infrastructure choices, with respect to our solution  and included them in this report.
 
@@ -429,7 +429,8 @@ Figure \ref{fig:bench} shows the performance of multiple machine learning algori
 
 \subsection{Comparison of multiple algorithms in Spark MLlib vs scikit-learn}
 
-We can see from figure \ref{fig:accmllib} that accuracies between multiple algorithms in MLlib are almost smiliar. 
+
+We compared the accuracies for different MLlib algorithms using pyspark.mllib package. We can see from figure \ref{fig:accmllib} the accuracies achieved for multiple algorithms in MLlib. While Kmeans gave the lowest accuracy, rest of the algorithms gave similar accuracies.
 
 \begin{figure}[h]
 \centering
@@ -438,13 +439,36 @@ We can see from figure \ref{fig:accmllib} that accuracies between multiple algor
 \label{fig:accmllib}
 \end{figure}
 
-Figure \ref{fig:mllibvssklearn} shows accuracy results of multiple machine learning algorithms in scikit-learn vs MLlib.
+We compared the accuracies resulted from Spark MLlib and scikit-learn algorithms. Figure \ref{fig:mllibvssklearn} shows accuracy results of multiple machine learning algorithms in scikit-learn vs MLlib.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth,scale=1]{images/mllibvssklearn}
 \caption{Accuracy Results: scikit-learn vs pyspark.mllib}
 \label{fig:mllibvssklearn}
+\end{figure}
+
+
+\subsection{Comparison of Spark Deployment Time}
+
+We compared the Hadoop-Spark deployment time with different number of machines on each of the clouds, Jetstream and Chameleon. We can see from figure \ref{fig:spd} that the Hadoop-Spark deployment is faster on Jetstream than  Chameleon. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,scale=1]{images/spdeploymenttime.png}
+	\caption{Accuracy Results with pyspark.mllib}
+	\label{fig:spd}
+\end{figure}
+
+\subsection{Comparison of File Transfer Time}
+
+We uploaded two files of different sizes to both Jetstream and Chameleon. We recorded the file transfer times for each of these clouds. We can see from figure \ref{fig:ftt} that the it took lesser time to transfer files JetStream cloud machines than to Chameleon cloud machines.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,scale=1]{images/Filetransfer.png}
+	\caption{Accuracy Results with pyspark.mllib}
+	\label{fig:ftt}
 \end{figure}
 
 \section{Troubleshooting}
@@ -460,7 +484,8 @@ We encountered several errors while running different commands in the Linux term
  \textbf{Resolution}: \\
  cm ssh-key delete <username>-001\\
  cm ssh-key delete <username>-001 cloud = chameleon\\
- cm ssh-key add\\
+ ssh-add\\
+ cm key add --ssh\\
  cm ssh-key upload\\
  cm key refresh
  
@@ -507,7 +532,7 @@ cm cluster define --count 3 --image CC-Ubuntu14.04
  \textbf{Resolution}: Exit from the current hadoop user using \textit{exit} command. The user will change to ‘cc’ that has the root privileges. Install  the package through the 'cc' user log-in back as the hadoop user to use the installed package .
 \end{enumerate}
 
-The "Cm refresh on" command can be used most of the times to resolve multiple errors.
+The "cm refresh on" command can be used most of the times to resolve multiple errors.
 
 
 
