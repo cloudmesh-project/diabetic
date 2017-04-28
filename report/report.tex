@@ -160,7 +160,7 @@ For this project, we used Ansible to automate the deployment of spark and its pr
 
 The Ansible playbook package constitutes 4 files.
 \begin{enumerate}
-\item \textit{ansible.cfg}: This file consists of configuration information.
+\item \textit{inventory}: This file is used by the playbook to install packages and services on target servers. This Inventory file consists of target servers and these servers can be categorized into groups like webservers, dbservers etc. Under each group, we can list the server which serves common purpose.
 \item \textit{playbook-cloudmesh-first-time-install.yml}: This file was used for deployment of cloudmesh client.
 \item \textit{host}: This file contains the list of hosts.
 \item \textit{hadoop-spark-playbook.yml}: This consists of the ansible code for redeployment of all the pre-requisites packages for cloudmesh client. This also deployment of spark using cloudmesh client.
