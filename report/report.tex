@@ -419,14 +419,29 @@ In the figure \ref{fig:bench} we are displaying the time taken to run each of th
 \end{enumerate}
 
 \subsection{Computation time of algorithms in clouds}
-Figure \ref{fig:bench} shows the performance of multiple machine learning algorithms using Spark MLlib in multiple clouds.
+Figure \ref{fig:bench} shows the performance of multiple machine learning algorithms using Spark MLlib on clusters in Jetstream, Chameleon and Virtual Box.
 \begin{figure}[h]
-\centering
-\includegraphics[scale=0.85]{images/Benchmarking}
-\caption{Run-time in different clouds.}
-\label{fig:bench}
+	\centering
+	\includegraphics[scale=0.85]{images/Benchmarking}
+	\caption{Run-time in different clouds.}
+	\label{fig:bench}
 \end{figure}
 
+Figures \ref{fig:bench1} and \ref{fig:bench2} shows the run-time comparison for machine learning algorithms using Spark MLlib in Jetstream and Chameleon, for predicting readmission likelihood, for 3 and 5 VM's respectively.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/algoruntime3.png}
+\caption{Run-time in different clouds for 3 vms}
+\label{fig:bench1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{images/algoruntime5.png}
+	\caption{Run-time in different clouds for 5 vms}
+	\label{fig:bench2}
+\end{figure}
 \subsection{Comparison of multiple algorithms in Spark MLlib vs scikit-learn}
 
 
