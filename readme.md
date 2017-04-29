@@ -2,40 +2,40 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 1. download the github repository by typing the following command:
 	
- https://github.com/cloudmesh/diabetic.git
+        https://github.com/cloudmesh/diabetic.git 
 
 2. Install Ansible(ignore if latest ansible is already installed)
 
-   2.3. make sure ansible is installed using the command :
-        <apt-get install ansible>
+        2.1. make sure ansible is installed using the command :
+             <apt-get install ansible>
 
 
 --------------------------Cloudmesh Set Up-------------------------------------
 
 
 3. Open the inventory file:
-   a. replace the <username> with your preferred localhost username
+         a. replace the <username> with your preferred localhost username
 
 4. Run the ansible playbook using : 
    
-    ansible-playbook -i inventory playbook-cloudmesh-first-time-install.yml -vvvv
+         ansible-playbook -i inventory playbook-cloudmesh-first-time-install.yml -vvvv
 
 5. Run the following command :
-       $ cm 
+         $ cm 
        
-       exit out by typing ctrl+c
+   exit out by typing ctrl+c
 
 6. Open the file ~/.cloudmesh/cloudmesh.yml and edit the following entry:
 
-       6.1 Edit the following section,the entry with < > should be customized as per your credentials:
+        6.1 Edit the following section,the entry with < > should be customized as per your credentials:
 
-	 profile:
-	      firstname: <first name>
-	      lastname: <last name>
-	      email: <email id>
-	      user: <chameleon/jetsream/other cloud username>
+		 profile:
+		      firstname: <first name>
+		      lastname: <last name>
+		      email: <email id>
+		      user: <chameleon/jetsream/other cloud username>
 
-       6.2. Change the entry of active cloud to use your preferred cloud,only( perform only for chameleon cloud):
+        6.2. Change the entry of active cloud to use your preferred cloud,only( perform only for chameleon cloud):
  
 
         a. only for chameleon cloud:
@@ -95,31 +95,32 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
       6.4. (Step only for Chameleon cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
 
-	 default:
-	 	flavor: m1.medium
-	 	image: CC-Ubuntu14.04
+               default:
+	          flavor: m1.medium
+		  image: CC-Ubuntu14.04
 
       6.5 (Step only for Jetstream cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
- 
-	 default:
+
+
+              default:
 	 	flavor: m1.medium
 	 	image: ubuntu-14.04-trusty-server-cloudimg
 
 
 7. Open the file 'playbook-cloudmesh-first-time-configure.yml'. We need to configure file as per our credentials. It will upgrade all the pre-requiste of cloudmesh-client:
   
-   a. Change  <cloud provider name> to name of the preferred cloud
+         a. Change  <cloud provider name> to name of the preferred cloud
 
-   b. Change the <cloud username> to preferred/active cloud username
+         b. Change the <cloud username> to preferred/active cloud username
 
 
 ------------------------- Cloudmesh Client upgrade(Optional) -----------------------------------
 
 8. Skip this step. Open the file 'upgrade-cloudmesh'. We need to configure file as per our credentials. It will upgrade all the pre-requiste of cloudmesh-client:
   
-   a. Change  <cloud provider name> to name of the preferred cloud
+         a. Change  <cloud provider name> to name of the preferred cloud
 
-   b. Change the <cloud username> to preferred cloud username
+         b. Change the <cloud username> to preferred cloud username
 
 
 
@@ -132,21 +133,23 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 10. open the inventory file:
 
-    a. replace the <username> with your preferred localhost username
+        a. replace the <username> with your preferred localhost username
 
 
 11. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
    So, open transfer file remotely
  
-   a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
+        a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
  
 
 12. open the deplyment-playbook.yml:
-   a. change the --count <number-of-vms> to number of node you wants to be deployed for the spark cluster. Eg. --count 3
+
+        a. change the --count <number-of-vms> to number of node you wants to be deployed for the spark cluster. Eg. --count 3
 
 13. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
-   a. chown 600 deployment-benchmark.sh
-   b. ./600 deployment-benchmark.sh
+   
+        a. chown 600 deployment-benchmark.sh
+        b. ./600 deployment-benchmark.sh
 
 14. The benchmark for deployment is the time elapsed in deployment.The output is found in 'benchmark_deployment_jetstream'
 
@@ -164,19 +167,20 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 16. open the inventory file:
 
-   a. replace the <username> with your preferred localhost username
-   b. replace <spark-master-node-ip-address> with the ipaddress or the hostname of the target master node
+         a. replace the <username> with your preferred localhost username
+         b. replace <spark-master-node-ip-address> with the ipaddress or the hostname of the target master node
    
 
 17. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
    So, open transfer file remotely
  
-   a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
+         a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
  
  
 18. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
-   a. chown 600 tranferfile-benchmark.sh
-   b. ./600 tranferfile-benchmark.sh
+   
+         a. chown 600 tranferfile-benchmark.sh
+         b. ./600 tranferfile-benchmark.sh
 
 19. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
 
@@ -188,7 +192,7 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 20. Go to 'codes'-> 'ml-pyspark' directory:
 
-    Each directory indicates the pyspark algorthm which we will be running and finding the run time and accuracy of the algorithm.
+        Each directory indicates the pyspark algorthm which we will be running and finding the run time and accuracy of the algorithm.
 
 21. Go to 'input' folder to check out the input files we used for the project
 
@@ -204,13 +208,13 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 25. We will show example to run only 1 algorithm(naive bayes). The steps are same to run other algorithm:
 
-    a. Go to 'naive-bayes' directory:
+         a. Go to 'naive-bayes' directory:
       
-    b. Run the command, <localhost-ip> with your actual ip address:
+         b. Run the command, <localhost-ip> with your actual ip address:
 
         time spark-submit --master yarn --deploy-mode client --executor-memory 1g --name naive-bayes --conf "spark.app.id=naive-bayes" naive-bayes.py hdfs://<localhost-ip>:8020/inputfiles/data136.csv > hdfs://<localhost-ip>/output-naive-bayes-out.txt
 
-    Using the above command we will come to know the time taken by each algorithm to run.
+   Using the above command we will come to know the time taken by each algorithm to run.
 
 26. The logs will be giving the following output as the very last step:
 
