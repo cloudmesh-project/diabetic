@@ -7,7 +7,7 @@ import numpy as np
 from numpy import array
 from pyspark import SparkContext
 from pyspark.mllib.clustering import KMeans
-
+import sys
 
 def parseVectorAndDropLastColumn(line):
     arr=[]
@@ -17,15 +17,15 @@ def parseVectorAndDropLastColumn(line):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: kmeans <file> <k>", file=sys.stderr)
-        exit(-1)
+    #if len(sys.argv) != 2:
+    #   print("Usage: kmeans <file> <k>", file=sys.stderr)
+    #   exit(-1)
     sc = SparkContext(appName="KMeans")
-    lines = sc.textFile('../data136.csv')
+    lines = sc.textFile(sys.argv[1])
     data = lines.map(parseVectorAndDropLastColumn)
     k = int(2)
     model = KMeans.train(data, k)
-    with open('../data136.csv') as file:
+    with open(sys.argv[1]) as file:
        rows=file.readlines();
 
     rowOfDataPoints=[]
@@ -87,9 +87,7 @@ if __name__ == "__main__":
         accuracy= float((len(truematches) * 100)/len(AV))
  	print('accuracy: ',str(accuracy))
 
-
-
-
+sc.stop()
     #accuracyincluster0=numberOfCorrectMappingincluster0/totalnumberofitemsincluster0;
     #accuracyincluster1=numberOfCorrectMappingincluster1/totalnumberofitemsincluster1;
     ##print(accuracyincluster0)
@@ -106,4 +104,4 @@ if __name__ == "__main__":
     #print("2nd cluster center"+str(model.clusterCenters[1]))
 
     #print("Total Cost: " + str(model.computeCost(data)))
-sc.stop()
+

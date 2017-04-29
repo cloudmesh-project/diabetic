@@ -1,4 +1,4 @@
-Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabetic patients:
+Predicting the :
 
 1. download the github repository by typing the following command:
 	
@@ -112,42 +112,31 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
    b. Change the <cloud username> to preferred/active cloud username
 
 
----------------------------------------------------------------------------------- Cloudmesh Client upgrade(Optional) -----------------------------------------------------------------------------------
-
-8. Skip this step. Open the file 'upgrade-cloudmesh'. We need to configure file as per our credentials. It will upgrade all the pre-requiste of cloudmesh-client:
-  
-   a. Change  <cloud provider name> to name of the preferred cloud
-
-   b. Change the <cloud username> to preferred cloud username
-
-
-
-
 ----------------------------------------------------------------------------------Benchmarking: Spark Deployment ---------------------------------------------------------------------------------------
 
 
 
-9. Go to 'hadoop-spark-deployment' deployment folder:
+8. Go to 'hadoop-spark-deployment' deployment folder:
 
-10. open the inventory file:
+9. open the inventory file:
 
     a. replace the <username> with your preferred localhost username
 
 
-11. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
+10. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
    So, open transfer file remotely
  
    a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
  
 
-12. open the deplyment-playbook.yml:
+11. open the deplyment-playbook.yml:
    a. change the --count <number-of-vms> to number of node you wants to be deployed for the spark cluster. Eg. --count 3
 
-13. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
+12. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
    a. chown 600 deployment-benchmark.sh
    b. ./600 deployment-benchmark.sh
 
-14. The benchmark for deployment is the time elapsed in deployment.The output is found in 'benchmark_deployment_jetstream'
+13. The benchmark for deployment is the time elapsed in deployment.The output is found in 'benchmark_deployment_jetstream'
 
 
 
@@ -159,25 +148,25 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 -------------------------------------------------------------------------Benchmarking:Transfer time of python script and input files-----------------------------------------------------------------
 
 
-15. Go to 'file-transfer' folder: 
+14. Go to 'file-transfer' folder: 
 
-16. open the inventory file:
+15. open the inventory file:
 
    a. replace the <username> with your preferred localhost username
    b. replace <spark-master-node-ip-address> with the ipaddress or the hostname of the target master node
    
 
-17. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
+16. We have created a 'inputfileandpythoncode.tar.gz' which contains the python code and the input file need to be transferred on the remote machine.
    So, open transfer file remotely
  
    a. replace the <absolute path> with the absolute path where the file inputfileandpythoncode.tar.gz.
  
  
-18. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
+17. run the tranferfile-benchmark.sh file. Make sure it has been changed to executable by typing the following command:
    a. chown 600 tranferfile-benchmark.sh
    b. ./600 tranferfile-benchmark.sh
 
-19. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
+18. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
 
 ----------------------------------------------------------------------Benchmarking:Transfer time of python script and input files ENDS--------------------------------------------------------------------
 
@@ -185,44 +174,42 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 ----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms------------------------------------------------------------------------------------------------
 
-20. Go to 'codes'-> 'ml-pyspark' directory:
+19. Go to 'codes'-> 'ml-pyspark' directory:
 
     Each directory indicates the pyspark algorthm which we will be running and finding the run time and accuracy of the algorithm.
 
-21. Go to 'input' folder to check out the input files we used for the project
+20. Go to 'input' folder to check out the input files we used for the project
 
 
-22. After step 17 , we will be logging the cloud vm which would be acting as the SPARK/Hadoop master by 'hadoop' user to find file 'inputfileandpythoncode.tar.gz'. 
+21. After step 17 , we will be logging the cloud vm which would be acting as the SPARK/Hadoop master by 'hadoop' user to find file 'inputfileandpythoncode.tar.gz'. 
 
-23. Untar it using the following command:
+22. Untar it using the following command:
     tar -xvf inputfileandpythoncode.tar.gz
 
-24. upload the data to hdfs by using the following command:
+23. upload the data to hdfs by using the following command:
 
     hdfs dfs -put inputfiles/data136.csv /inputfiles/data136.csv
 
-25. We will show example to run only 1 algorithm(naive bayes). The steps are same to run other algorithm:
+24. We will show example to run only 1 algorithm(naive bayes). The steps are same to run other algorithm:
 
     a. Go to 'naive-bayes' directory:
       
-    b. Run the command, <localhost-ip> with your actual ip address:
+    b. Run the command :
 
-        time spark-submit --master yarn --deploy-mode client --executor-memory 1g --name naive-bayes --conf "spark.app.id=naive-bayes" naive-bayes.py hdfs://<localhost-ip>:8020/inputfiles/data136.csv > hdfs://<localhost-ip>/output-naive-bayes-out.txt
+        time spark-submit --master yarn --deploy-mode client --executor-memory 1g --name naive-bayes --conf "spark.app.id=naive-bayes" naive-bayes.py hdfs://192.168.0.102:8020/inputfiles/data136.csv > hdfs://192.168.0.102:8020/output-naive-bayes-out.txt
 
     Using the above command we will come to know the time taken by each algorithm to run.
 
-26. The logs will be giving the following output as the very last step:
+25. The logs will be giving the following output in the very last step:
 
-        real	1m55.845s
-    
-    The above signifies that it took 1 min 55.84 sec to run the algorithm using spark-submit.
+        time: real: XXXX seconds
   
-28. Note down the real time for each algorithm. 
+26. We Noted down the real time for each algorithm. 
 
-29. The output file generated by the running step 23. will contain the accuracy of the algorithm.
+27. The output file generated by the running step 23. will contain the accuracy of the algorithm.
 
 
-30. Repeat the steps from 23. to 27. for each of the algorithm and for each of the cloud that are  chameleon vs jetstream vs virtualbox regularly 
+28. Repeat the steps from 23. to 27. for each of the algorithm and for each of the cloud that are  chameleon vs jetstream vs virtualbox regularly 
     
 ----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms ENDS----------------------------------------------------------------------------------------
 

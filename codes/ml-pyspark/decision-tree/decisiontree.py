@@ -10,7 +10,7 @@ from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from pyspark.mllib.util import MLUtils
 from pyspark.mllib.linalg import Vectors
 from pyspark.mllib.regression import LabeledPoint
-
+import sys
 
 
 def parseLine(line):
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     sc = SparkContext(appName="PythonDecisionTreeClassificationExample")
 
-    data = sc.textFile('data136.csv').map(parseLine)
+    data = sc.textFile('sys.argv[1]).map(parseLine)
    
     # Split the data into training and test sets (30% held out for testing)
     (trainingData, testData) = data.randomSplit([0.7, 0.3])
@@ -39,10 +39,5 @@ if __name__ == "__main__":
     labelsAndPredictions = testData.map(lambda lp: lp.label).zip(predictions)
     testErr = labelsAndPredictions.filter(lambda (v, p): v != p).count() / float(testData.count())
     print('Test Error = ' + str(testErr))
-    print('Learned classification tree model:')
-    print(model.toDebugString())
-
-    # Save and load model
-    #model.save(sc, "target/tmp/myDecisionTreeClassificationModel")
-    #sameModel = DecisionTreeModel.load(sc, "target/tmp/myDecisionTreeClassificationModel")
-# $example off$
+    #print('Learned classification tree model:')
+    #print(model.toDebugString())

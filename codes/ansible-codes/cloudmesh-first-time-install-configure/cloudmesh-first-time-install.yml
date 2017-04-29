@@ -18,7 +18,7 @@
 
      - name: Generates SSH keys if they do not exist
        become_user: root
-       shell: ssh-keygen -b 2048 -t rsa -f /home/{{ lookup('env','USER') }}/.ssh/id_rsa -q -N ""
+       shell: ssh-keygen
        args:
          creates: /home/{{ lookup('env','USER') }}/.ssh/id_rsa
        when: ssh_exists.stat.exists == False

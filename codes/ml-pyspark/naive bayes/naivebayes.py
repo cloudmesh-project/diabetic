@@ -2,7 +2,7 @@ from pyspark.mllib.classification import NaiveBayes, NaiveBayesModel
 from pyspark.mllib.linalg import Vectors
 from pyspark.mllib.regression import LabeledPoint
 from pyspark import SparkContext
-
+import sys
 def parseLine(line):
     parts = line.split(',')
     #print(len(parts))
@@ -10,8 +10,8 @@ def parseLine(line):
     features = Vectors.dense([float(parts[x]) for x in range(0,len(parts)-1)])
     return LabeledPoint(label, features)
 
-sc = SparkContext(appName="naivebayes2")
-data = sc.textFile('data136.csv').map(parseLine)
+sc = SparkContext(appName="naivebayes")
+data = sc.textFile(sys.argv[1]).map(parseLine)
 
 # Split data aproximately into training (60%) and test (40%)
 training, test = data.randomSplit([0.8, 0.2], seed=0)
