@@ -10,7 +10,8 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
         <apt-get install ansible>
 
 
--------------------------------------------------------------------------------Cloudmesh Set Up-------------------------------------------------------------------------------------------------------------
+--------------------------Cloudmesh Set Up-------------------------------------
+
 
 3. Open the inventory file:
    a. replace the <username> with your preferred localhost username
@@ -112,7 +113,7 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
    b. Change the <cloud username> to preferred/active cloud username
 
 
----------------------------------------------------------------------------------- Cloudmesh Client upgrade(Optional) -----------------------------------------------------------------------------------
+------------------------- Cloudmesh Client upgrade(Optional) -----------------------------------
 
 8. Skip this step. Open the file 'upgrade-cloudmesh'. We need to configure file as per our credentials. It will upgrade all the pre-requiste of cloudmesh-client:
   
@@ -123,7 +124,7 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 
 
-----------------------------------------------------------------------------------Benchmarking: Spark Deployment ---------------------------------------------------------------------------------------
+------------------------Benchmarking: Spark Deployment -------------------------------------------
 
 
 
@@ -151,12 +152,12 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 
 
---------------------------------------------------------------------------Benchmarking:Spark Deployment ENDS----------------------------------------------------------------------------------------------
+----------------------------------Benchmarking:Spark Deployment ENDS------------------------------------
 
 
 
 
--------------------------------------------------------------------------Benchmarking:Transfer time of python script and input files-----------------------------------------------------------------
+----------------------------Benchmarking:Transfer time of python script and input files------------------
 
 
 15. Go to 'file-transfer' folder: 
@@ -179,11 +180,11 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 19. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
 
-----------------------------------------------------------------------Benchmarking:Transfer time of python script and input files ENDS--------------------------------------------------------------------
+---------------------------Benchmarking:Transfer time of python script and input files ENDS-----------
 
 
 
-----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms------------------------------------------------------------------------------------------------
+-----------------------------------Benchmarking: Runtime of ML algorithms------------------------------
 
 20. Go to 'codes'-> 'ml-pyspark' directory:
 
@@ -224,7 +225,7 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
 
 30. Repeat the steps from 23. to 27. for each of the algorithm and for each of the cloud that are  chameleon vs jetstream vs virtualbox regularly 
     
-----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms ENDS----------------------------------------------------------------------------------------
+-----------------------------------Benchmarking: Runtime of ML algorithms ENDS------------------------------
 
 
 
