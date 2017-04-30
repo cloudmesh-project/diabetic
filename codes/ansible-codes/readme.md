@@ -10,7 +10,7 @@ Predicting the :
         <apt-get install ansible>
 
 
--------------------------------------------------------------------------------Cloudmesh Set Up-------------------------------------------------------------------------------------------------------------
+------------------------------------------------Cloudmesh Set Up----------------------------------------------------------
 
 3. Open the inventory file:
    a. replace the <username> with your preferred localhost username
@@ -112,7 +112,7 @@ Predicting the :
    b. Change the <cloud username> to preferred/active cloud username
 
 
-----------------------------------------------------------------------------------Benchmarking: Spark Deployment ---------------------------------------------------------------------------------------
+------------------------------------Benchmarking: Spark Deployment --------------------------------------------
 
 
 
@@ -140,12 +140,12 @@ Predicting the :
 
 
 
---------------------------------------------------------------------------Benchmarking:Spark Deployment ENDS----------------------------------------------------------------------------------------------
+---------------------------Benchmarking:Spark Deployment ENDS----------------------------------------------------
 
 
 
 
--------------------------------------------------------------------------Benchmarking:Transfer time of python script and input files-----------------------------------------------------------------
+------------------------Benchmarking:Transfer time of python script and input files--------------------------------
 
 
 14. Go to 'file-transfer' folder: 
@@ -168,11 +168,11 @@ Predicting the :
 
 18. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
 
-----------------------------------------------------------------------Benchmarking:Transfer time of python script and input files ENDS--------------------------------------------------------------------
+----------------------------Benchmarking:Transfer time of python script and input files ENDS--------------------
 
 
 
-----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms------------------------------------------------------------------------------------------------
+----------------------------Benchmarking: Runtime of ML algorithms-------------------------------------
 
 19. Go to 'codes'-> 'ml-pyspark' directory:
 
@@ -211,7 +211,7 @@ Predicting the :
 
 28. Repeat the steps from 23. to 27. for each of the algorithm and for each of the cloud that are  chameleon vs jetstream vs virtualbox regularly 
     
-----------------------------------------------------------------------Benchmarking: Runtime of ML algorithms ENDS----------------------------------------------------------------------------------------
+------------------------------Benchmarking: Runtime of ML algorithms ENDS-----------------------------------------
 
 
 
