@@ -212,7 +212,7 @@ Using Hadoop and Spark for Big Data Analytics: Predicting Readmission of Diabeti
       
          b. Run the command, <localhost-ip> with your actual ip address:
 
-        time spark-submit --master yarn --deploy-mode client --executor-memory 1g --name naive-bayes --conf "spark.app.id=naive-bayes" naive-bayes.py hdfs://<localhost-ip>:8020/inputfiles/data136.csv > hdfs://<localhost-ip>/output-naive-bayes-out.txt
+        time spark-submit --master yarn --deploy-mode client --executor-memory 1g --name naive-bayes --conf "spark.app.id=naive-bayes"           naive-bayes.py hdfs://<localhost-ip>:8020/inputfiles/data136.csv > hdfs://<localhost-ip>/output-naive-bayes-out.txt
 
    Using the above command we will come to know the time taken by each algorithm to run.
 
