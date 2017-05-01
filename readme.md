@@ -235,8 +235,4 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
 
 
-[https://github.com/cloudmesh/diabetic.git](https://github.com/cloudmesh/diabetic.git)
-
-
-
 
