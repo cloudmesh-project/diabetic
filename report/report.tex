@@ -152,7 +152,7 @@ For this project, we used Ansible to automate the deployment of spark and its pr
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.28]{images/auto_deploy}
+\includegraphics[scale = 0.28]{images/auto_deployf}
 \caption{Automated Cloud Deployment using Ansible}
 \label{fig:ansible}
 \end{figure}
@@ -378,7 +378,7 @@ The variations in run-time, deployment time and file transfer are caused due to 
 
 \subsection{Comparison of Spark Deployment Time}
 
-We compared the Hadoop-Spark deployment time with different number of machines on each of the clouds, Jetstream and Chameleon. We can see from figure \ref{fig:spd} that the Hadoop-Spark deployment is faster on Chameleon than  Jetstream. 
+We compared the Hadoop-Spark deployment time with different number of machines on each of the clouds, Jetstream and Chameleon. We can see from figure \ref{fig:spd} the Hadoop-Spark deployment times observed on Chameleon and Jetstream clouds. 
 
 \begin{figure}[h]
 	\centering
@@ -395,7 +395,7 @@ We compared the Hadoop-Spark deployment time with different number of machines o
 \end{figure}
 
 \subsection{Computation time of algorithms in clouds}
-Figure \ref{fig:bench} shows the performance of multiple machine learning algorithms using Spark MLlib on clusters in Jetstream, Chameleon and Virtual Box.
+Figure \ref{fig:bench} shows the performance of multiple machine learning algorithms provided by Spark MLlib on clusters in Jetstream, Chameleon and Virtual Box.
 
 \begin{figure}[h]
 \centering
@@ -440,7 +440,7 @@ We compared the accuracies achieved from Spark MLlib and scikit-learn algorithms
 
 \subsection{Comparison of File Transfer Time}
 
-We uploaded two files of different sizes to both Jetstream and Chameleon. We recorded the file transfer times for each of these clouds. We can see from figure \ref{fig:ftt} that the it took lesser time to transfer files to JetStream cloud machines than to Chameleon cloud machines.
+We uploaded two files of different sizes, 3 MB and 168 MB, to both Jetstream and Chameleon. We recorded the file transfer times for each of these clouds. We can see from figure \ref{fig:ftt} that the it took lesser time to transfer files to JetStream cloud machines than to Chameleon cloud machines.
 
 \begin{figure}[h]
 	\centering
