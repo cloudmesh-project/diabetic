@@ -4,7 +4,7 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
 1. download the github repository by typing the following command:
 	
-        https://github.com/cloudmesh/diabetic.git 
+       git clone https://github.com/cloudmesh/diabetic.git 
 
 2. Install Ansible(ignore if latest ansible is already installed)
 
