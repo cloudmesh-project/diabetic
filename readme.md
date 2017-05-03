@@ -82,7 +82,7 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
  
         b. for jetstream 
                 
-                credentials:
+             credentials:
 		OS_PROJECT_DOMAIN_NAME: tacc
 		OS_USER_DOMAIN_NAME: tacc
 		OS_PROJECT_NAME: TG-CIE170003
