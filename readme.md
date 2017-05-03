@@ -59,11 +59,11 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
         c. for both jetstream and chameleon cloud: 
    
-                  active:
-		   - chameleon
-		   - jetstream
-		   clouds:
-		   ...
+                active:
+		- chameleon
+		- jetstream
+		clouds:
+		...
 
 	       
 
