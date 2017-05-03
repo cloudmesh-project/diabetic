@@ -98,16 +98,16 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
       6.4. (Step only for Chameleon cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
 
-            default:
-	            flavor: m1.medium
-		    image: CC-Ubuntu14.04
+           default:
+	   flavor: m1.medium
+	   image: CC-Ubuntu14.04
 
       6.5 (Step only for Jetstream cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
 
 
            default:
-	 	flavor: m1.medium
-	 	image: ubuntu-14.04-trusty-server-cloudimg
+	   flavor: m1.medium
+	   image: ubuntu-14.04-trusty-server-cloudimg
 
 
 7. Open the file 'playbook-cloudmesh-first-time-configure.yml'. We need to configure file as per our credentials. It will upgrade all the pre-requiste of cloudmesh-client:
