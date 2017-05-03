@@ -98,14 +98,14 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
       6.4. (Step only for Chameleon cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
 
-                default:
+            default:
 	            flavor: m1.medium
 		    image: CC-Ubuntu14.04
 
       6.5 (Step only for Jetstream cloud configuration for hadoop/spark deployment) Change the type of OS and flavor you want for hadoop/spark cluster(recommended) under your preferred cloud:
 
 
-              default:
+           default:
 	 	flavor: m1.medium
 	 	image: ubuntu-14.04-trusty-server-cloudimg
 
