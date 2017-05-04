@@ -163,7 +163,7 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
 
 
-----------------------------Benchmarking:Transfer time of python script and input files------------------
+----------------------------Transfer time of python script and input files-----------------------------
 
 
 15. Go to 'file-transfer' folder: 
@@ -187,7 +187,7 @@ Deployment of Spark on Chameleon, Jetstream and VirtualBox.
 
 19. The time elapsed in transfering the file is considered as bench mark for network connectivity.The output is found in 'bechmark_filtransfer_jetstream'
 
----------------------------Benchmarking:Transfer time of python script and input files ENDS-----------
+---------------------------:Transfer python script and input files ENDS----------------------------------
 
 
 
